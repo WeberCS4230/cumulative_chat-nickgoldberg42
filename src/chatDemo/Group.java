@@ -11,6 +11,18 @@ public class Group implements Comparable<Group>
 		this.student2 = student2;
 	}
 
+	public void groupChat()
+	{
+		System.out.println(student1.responses.get(0));
+		System.out.println(student2.responses.get(0));
+		System.out.println(student1.responses.get(1));
+		System.out.println(student2.responses.get(1));
+		System.out.println(student1.responses.get(2));
+		System.out.println(student2.responses.get(2));
+		System.out.println(student1.responses.get(3));
+		System.out.println(student2.responses.get(3));
+	}
+
 	@Override
 	public int compareTo(Group o)
 	{

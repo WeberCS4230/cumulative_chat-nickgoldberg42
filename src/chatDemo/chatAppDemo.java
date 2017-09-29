@@ -2,7 +2,6 @@ package chatDemo;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 public class chatAppDemo
@@ -46,23 +45,12 @@ public class chatAppDemo
 
 		Collections.sort(listOfGroups);
 
-		Iterator<Group> itr = listOfGroups.iterator();
-		while (itr.hasNext())
+		for (int i = 0; i <= 3; i++)
 		{
-			System.out.println(itr.next().student1.firstName);
+			System.out.println("Group " + (i + 1));
+			listOfGroups.get(i).groupChat();
+			System.out.println();
 		}
-	}
-
-	public static void groupChat(Group group)
-	{
-		System.out.println(group.student1.responses.get(0));
-		System.out.println(group.student2.responses.get(0));
-		System.out.println(group.student1.responses.get(1));
-		System.out.println(group.student2.responses.get(1));
-		System.out.println(group.student1.responses.get(2));
-		System.out.println(group.student2.responses.get(2));
-		System.out.println(group.student1.responses.get(3));
-		System.out.println(group.student2.responses.get(3));
 	}
 
 }
