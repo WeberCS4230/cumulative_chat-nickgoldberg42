@@ -14,9 +14,13 @@ public class Group implements Comparable<Group>
 	@Override
 	public int compareTo(Group o)
 	{
+		if (o == null)
+		{
+			return -1;
+		}
 		if (this.student1.firstName.compareTo(o.student1.firstName) == 0)
 			return 0;
-		else if (this.student1.firstName.compareTo(o.student1.firstName) == 1)
+		else if (this.student1.firstName.compareTo(o.student1.firstName) > 0)
 			return 1;
 		else
 			return -1;

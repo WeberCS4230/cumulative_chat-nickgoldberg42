@@ -1,8 +1,9 @@
 package chatDemo;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.List;
 
 public class chatAppDemo
 {
@@ -36,13 +37,16 @@ public class chatAppDemo
 		Group group3 = new Group(tylerHoyer, stevenJulien);
 		Group group4 = new Group(jonathanMirabile, christopherNash);
 
-		Set<Group> setOfGroups = new TreeSet<>();
-		setOfGroups.add(group1);
-		setOfGroups.add(group2);
-		setOfGroups.add(group3);
-		setOfGroups.add(group4);
+		List<Group> listOfGroups = new ArrayList<>();
 
-		Iterator<Group> itr = setOfGroups.iterator();
+		listOfGroups.add(group1);
+		listOfGroups.add(group2);
+		listOfGroups.add(group3);
+		listOfGroups.add(group4);
+
+		Collections.sort(listOfGroups);
+
+		Iterator<Group> itr = listOfGroups.iterator();
 		while (itr.hasNext())
 		{
 			System.out.println(itr.next().student1.firstName);
