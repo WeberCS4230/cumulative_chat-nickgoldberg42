@@ -47,8 +47,6 @@ public class chatAppDemo
 
 		ChatGui cg = new ChatGui();
 
-		cg.start();
-
 		for (int i = 0; i <= 3; i++)
 		{
 			cg.addText();

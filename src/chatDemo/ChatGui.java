@@ -1,27 +1,21 @@
 package chatDemo;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class ChatGui
 {
-	JTextArea textArea = new JTextArea();
+	JTextArea textArea = new JTextArea(15, 30);
 	private JFrame frame;
-
-	public void start()
-	{
-		ChatGui window = new ChatGui();
-		window.frame.setVisible(true);
-
-	}
 
 	public ChatGui()
 	{
@@ -35,15 +29,17 @@ public class ChatGui
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
+
+		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
 		textArea.setLineWrap(true);
 		textArea.setEditable(true);
-		textArea.setBounds(10, 11, 397, 201);
 		panel.add(textArea);
 
+		JScrollPane scroll = new JScrollPane(textArea);
+		panel.add(scroll);
+
 		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(10, 232, 340, 22);
 		panel.add(textArea_1);
 
 		JButton btnNewButton = new JButton("Submit");
@@ -64,8 +60,9 @@ public class ChatGui
 			{
 			}
 		});
-		panel.setLayout(null);
+		frame.add(panel);
 		panel.add(btnNewButton);
+		frame.setVisible(true);
 
 	}
 
