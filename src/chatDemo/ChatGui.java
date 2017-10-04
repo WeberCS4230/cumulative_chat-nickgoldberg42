@@ -9,6 +9,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -39,35 +40,45 @@ public class ChatGui
 		JScrollPane scroll = new JScrollPane(textArea);
 		panel.add(scroll);
 
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.addKeyListener(new KeyAdapter()
+		JTextArea textEntry = new JTextArea();
+		textEntry.setFocusable(true);
+		textEntry.addKeyListener(new KeyAdapter()
 		{
 			@Override
-			public void keyTyped(KeyEvent e)
+			public void keyPressed(KeyEvent e)
 			{
-				if (e.getKeyCode() == KeyEvent.VK_ENTER)
+				if (e.getKeyCode() == KeyEvent.VK_ENTER && e.isControlDown())
 				{
-					String entry = textArea_1.getText();
+					String entry = textEntry.getText();
 					textArea.append(entry + "\n");
+
+					JScrollBar vertical = scroll.getVerticalScrollBar();
+					vertical.setValue(vertical.getMaximum());
+
+					textEntry.setText("");
 				}
 			}
 		});
-		panel.add(textArea_1);
+		panel.add(textEntry);
 
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.addMouseListener(new MouseAdapter()
+		JButton submitButton = new JButton("Submit");
+		submitButton.addMouseListener(new MouseAdapter()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
-				String entry = textArea_1.getText();
+				String entry = textEntry.getText();
 				textArea.append(entry + "\n");
+
+				JScrollBar vertical = scroll.getVerticalScrollBar();
+				vertical.setValue(vertical.getMaximum());
+
+				textEntry.setText("");
 			}
 		});
-		btnNewButton.setBounds(355, 228, 79, 33);
 
 		frame.getContentPane().add(panel);
-		panel.add(btnNewButton);
+		panel.add(submitButton);
 		frame.setVisible(true);
 
 	}
