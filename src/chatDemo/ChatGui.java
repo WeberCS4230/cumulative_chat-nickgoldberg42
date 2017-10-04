@@ -1,7 +1,7 @@
 package chatDemo;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -40,6 +40,18 @@ public class ChatGui
 		panel.add(scroll);
 
 		JTextArea textArea_1 = new JTextArea();
+		textArea_1.addKeyListener(new KeyAdapter()
+		{
+			@Override
+			public void keyTyped(KeyEvent e)
+			{
+				if (e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					String entry = textArea_1.getText();
+					textArea.append(entry + "\n");
+				}
+			}
+		});
 		panel.add(textArea_1);
 
 		JButton btnNewButton = new JButton("Submit");
@@ -53,21 +65,15 @@ public class ChatGui
 			}
 		});
 		btnNewButton.setBounds(355, 228, 79, 33);
-		btnNewButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-			}
-		});
-		frame.add(panel);
+
+		frame.getContentPane().add(panel);
 		panel.add(btnNewButton);
 		frame.setVisible(true);
 
 	}
 
-	public void addText()
+	public void addText(String text)
 	{
-		textArea.append("text" + "\n");
+		textArea.append(text + "\n");
 	}
 }

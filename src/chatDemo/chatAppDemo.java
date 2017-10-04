@@ -49,7 +49,7 @@ public class chatAppDemo
 
 		for (int i = 0; i <= 3; i++)
 		{
-			cg.addText();
+			cg.addText(listOfGroups.get(i).groupChat());
 		}
 
 	}

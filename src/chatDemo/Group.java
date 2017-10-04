@@ -13,10 +13,15 @@ public class Group implements Comparable<Group>
 
 	public String groupChat()
 	{
-		String chat = student1.responses.get(0) + student2.responses.get(0)
-				+ student1.responses.get(1) + student2.responses.get(1)
-				+ student1.responses.get(2) + student2.responses.get(2)
-				+ student1.responses.get(3) + student2.responses.get(3);
+		String chat = student1.firstName + ": " + student1.responses.get(0)
+				+ "\n" + student2.firstName + ": " + student2.responses.get(0)
+				+ "\n" + student1.firstName + ": " + student1.responses.get(1)
+				+ "\n" + student2.firstName + ": " + student2.responses.get(1)
+				+ "\n" + student1.firstName + ": " + student1.responses.get(2)
+				+ "\n" + student2.firstName + ": " + student2.responses.get(2)
+				+ "\n" + student1.firstName + ": " + student1.responses.get(3)
+				+ "\n" + student2.firstName + ": " + student2.responses.get(3)
+				+ "\n";
 		return chat;
 	}
 
