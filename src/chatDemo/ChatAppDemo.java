@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class chatAppDemo
+public class ChatAppDemo
 {
 
 	public static void main(String[] args)
