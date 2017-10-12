@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class chatAppDemo
 {
 
 	public static void main(String[] args)
 	{
+		JFrame frame = new JFrame();
 		Student justinBehunin = new Student("Justin", "Behunin", "Hi",
 				"How have you been", "Haven't seen you in awhile",
 				"How about this weather?");
@@ -47,11 +51,14 @@ public class chatAppDemo
 
 		ChatGui cg = new ChatGui();
 
-		for (int i = 0; i <= 3; i++)
-		{
-			cg.addText(listOfGroups.get(i).groupChat());
-		}
+		// for (int i = 0; i <= 3; i++)
+		// {
+		// cg.addText(listOfGroups.get(i).groupChat());
+		// }
 
+		JOptionPane.showMessageDialog(frame, "Please enter an IP address.");
+		Client chatClient = new Client(cg.textEntry.getText());
+		Server chatServer = new Server();
 	}
 
 }

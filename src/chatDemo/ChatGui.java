@@ -16,6 +16,7 @@ import javax.swing.JTextArea;
 public class ChatGui
 {
 	JTextArea textArea = new JTextArea(15, 30);
+	JTextArea textEntry = new JTextArea();
 	private JFrame frame;
 
 	public ChatGui()
@@ -40,13 +41,13 @@ public class ChatGui
 		JScrollPane scroll = new JScrollPane(textArea);
 		panel.add(scroll);
 
-		JTextArea textEntry = new JTextArea();
 		textEntry.setFocusable(true);
 		textEntry.addKeyListener(new KeyAdapter()
 		{
 			@Override
 			public void keyPressed(KeyEvent e)
 			{
+
 				if (e.getKeyCode() == KeyEvent.VK_ENTER && e.isControlDown())
 				{
 					String entry = textEntry.getText();
@@ -64,6 +65,7 @@ public class ChatGui
 		JButton submitButton = new JButton("Submit");
 		submitButton.addMouseListener(new MouseAdapter()
 		{
+
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
@@ -75,6 +77,7 @@ public class ChatGui
 
 				textEntry.setText("");
 			}
+
 		});
 
 		frame.getContentPane().add(panel);
@@ -86,5 +89,6 @@ public class ChatGui
 	public void addText(String text)
 	{
 		textArea.append(text + "\n");
+
 	}
 }
