@@ -12,7 +12,7 @@ public class Server
 	{
 		try
 		{
-			ss = new ServerSocket(5222);
+			ss = new ServerSocket(8090);
 
 			while (true)
 			{

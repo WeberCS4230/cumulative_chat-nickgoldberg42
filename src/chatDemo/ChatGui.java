@@ -15,7 +15,7 @@ import javax.swing.JTextArea;
 
 public class ChatGui
 {
-	JTextArea textArea = new JTextArea(15, 30);
+	JTextArea textArea = new JTextArea();
 	JTextArea textEntry = new JTextArea();
 	private JFrame frame;
 

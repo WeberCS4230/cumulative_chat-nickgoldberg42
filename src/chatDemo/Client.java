@@ -13,7 +13,7 @@ public class Client
 		Socket socket = null;
 		try
 		{
-			socket = new Socket(ip, 5222);
+			socket = new Socket(ip, 8090);
 
 			new Thread(new Handler(socket.getInputStream())).start();
 

@@ -3,9 +3,9 @@ package chatDemo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class chatAppDemo
 {
@@ -51,13 +51,14 @@ public class chatAppDemo
 
 		ChatGui cg = new ChatGui();
 
-		// for (int i = 0; i <= 3; i++)
-		// {
-		// cg.addText(listOfGroups.get(i).groupChat());
-		// }
-
-		JOptionPane.showMessageDialog(frame, "Please enter an IP address.");
-		Client chatClient = new Client(cg.textEntry.getText());
+		for (int i = 0; i <= 3; i++)
+		{
+			cg.addText(listOfGroups.get(i).groupChat());
+		}
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter an IP address.");
+		String ip = input.next();
+		Client chatClient = new Client(ip);
 		Server chatServer = new Server();
 	}
 
