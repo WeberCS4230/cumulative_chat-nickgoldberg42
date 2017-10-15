@@ -13,10 +13,9 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class ChatGui
+public class ChatGui extends JFrame
 {
 	JTextArea textArea = new JTextArea(15, 30);
-	private JFrame frame;
 
 	public ChatGui()
 	{
@@ -25,9 +24,8 @@ public class ChatGui
 
 	public void initialize()
 	{
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel panel = new JPanel();
 
@@ -77,9 +75,9 @@ public class ChatGui
 			}
 		});
 
-		frame.getContentPane().add(panel);
+		add(panel);
 		panel.add(submitButton);
-		frame.setVisible(true);
+		setVisible(true);
 
 	}
 
