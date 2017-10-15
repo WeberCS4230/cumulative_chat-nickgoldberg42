@@ -45,12 +45,13 @@ public class chatAppDemo
 
 		Collections.sort(listOfGroups);
 
+		ChatGui cg = new ChatGui();
+
 		for (int i = 0; i <= 3; i++)
 		{
-			System.out.println("Group " + (i + 1));
-			listOfGroups.get(i).groupChat();
-			System.out.println();
+			cg.addText(listOfGroups.get(i).groupChat());
 		}
+
 	}
 
 }
