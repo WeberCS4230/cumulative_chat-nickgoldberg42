@@ -28,6 +28,15 @@ public class Server
 		} catch (IOException e)
 		{
 			e.printStackTrace();
+		} finally
+		{
+			try
+			{
+				ss.close();
+			} catch (IOException e)
+			{
+				e.printStackTrace();
+			}
 		}
 	}
 
