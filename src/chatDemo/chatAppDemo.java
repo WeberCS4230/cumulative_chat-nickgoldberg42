@@ -56,12 +56,12 @@ public class chatAppDemo
 			cg.addText(listOfGroups.get(i).groupChat());
 		}
 
-		JOptionPane pane = new JOptionPane("IP");
-		pane.showInputDialog("Enter IP");
-		String ip = (String) pane.getInputValue();
+		// Your JOptionPane is used statically, not with "new JOptionPane" call
+		String ip = (String) JOptionPane.showInputDialog("Enter IP");
 
-		Client chatClient = new Client(ip);
-		Server chatServer = new Server();
+		// chatClient/chatServer are unused variables -2pts
+		new Client(ip);
+		new Server();
 	}
 
 }
