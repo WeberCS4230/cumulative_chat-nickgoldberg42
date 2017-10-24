@@ -11,16 +11,18 @@ public class Group implements Comparable<Group>
 		this.student2 = student2;
 	}
 
-	public void groupChat()
+	public String groupChat()
 	{
-		System.out.println(student1.responses.get(0));
-		System.out.println(student2.responses.get(0));
-		System.out.println(student1.responses.get(1));
-		System.out.println(student2.responses.get(1));
-		System.out.println(student1.responses.get(2));
-		System.out.println(student2.responses.get(2));
-		System.out.println(student1.responses.get(3));
-		System.out.println(student2.responses.get(3));
+		String chat = student1.firstName + ": " + student1.responses.get(0)
+				+ "\n" + student2.firstName + ": " + student2.responses.get(0)
+				+ "\n" + student1.firstName + ": " + student1.responses.get(1)
+				+ "\n" + student2.firstName + ": " + student2.responses.get(1)
+				+ "\n" + student1.firstName + ": " + student1.responses.get(2)
+				+ "\n" + student2.firstName + ": " + student2.responses.get(2)
+				+ "\n" + student1.firstName + ": " + student1.responses.get(3)
+				+ "\n" + student2.firstName + ": " + student2.responses.get(3)
+				+ "\n";
+		return chat;
 	}
 
 	@Override

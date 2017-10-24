@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class chatAppDemo
 {
 
 	public static void main(String[] args)
 	{
+		JFrame frame = new JFrame();
 		Student justinBehunin = new Student("Justin", "Behunin", "Hi",
 				"How have you been", "Haven't seen you in awhile",
 				"How about this weather?");
@@ -45,12 +49,19 @@ public class chatAppDemo
 
 		Collections.sort(listOfGroups);
 
+		ChatGui cg = new ChatGui();
+
 		for (int i = 0; i <= 3; i++)
 		{
-			System.out.println("Group " + (i + 1));
-			listOfGroups.get(i).groupChat();
-			System.out.println();
+			cg.addText(listOfGroups.get(i).groupChat());
 		}
+
+		// Your JOptionPane is used statically, not with "new JOptionPane" call
+		String ip = (String) JOptionPane.showInputDialog("Enter IP");
+
+		// chatClient/chatServer are unused variables -2pts
+		new Client(ip);
+		new Server();
 	}
 
 }
