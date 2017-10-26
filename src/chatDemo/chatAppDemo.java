@@ -1,5 +1,7 @@
 package chatDemo;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,6 +13,7 @@ public class chatAppDemo
 {
 
 	public static void main(String[] args)
+			throws UnknownHostException, IOException
 	{
 		JFrame frame = new JFrame();
 		Student justinBehunin = new Student("Justin", "Behunin", "Hi",
@@ -49,19 +52,18 @@ public class chatAppDemo
 
 		Collections.sort(listOfGroups);
 
-		ChatGui cg = new ChatGui();
-
-		for (int i = 0; i <= 3; i++)
-		{
-			cg.addText(listOfGroups.get(i).groupChat());
-		}
-
 		JOptionPane pane = new JOptionPane("IP");
 		pane.showInputDialog("Enter IP");
 		String ip = (String) pane.getInputValue();
-
-		Client chatClient = new Client(ip);
 		Server chatServer = new Server();
+		ChatGui cg = new ChatGui();
+		Client chatClient = new Client(ip, cg);
+
+		// for (int i = 0; i <= 3; i++)
+		// {
+		// cg.addText(listOfGroups.get(i).groupChat());
+		// }
+
 	}
 
 }

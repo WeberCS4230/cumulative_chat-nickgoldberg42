@@ -1,6 +1,9 @@
 package chatDemo;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -19,14 +22,8 @@ public class Server
 			{
 				Socket socket = ss.accept();
 
-				int read;
-				while ((read = socket.getInputStream().read()) >= 0)
-				{
-					PrintWriter writer = new PrintWriter(
-							socket.getOutputStream());
-					System.out.println(writer);
+				new Thread(new Handler(socket)).start();
 
-				}
 			}
 		} catch (IOException e)
 		{
@@ -42,10 +39,49 @@ public class Server
 			}
 		}
 	}
+	// public void broadcast(String message) {
+	// for (Client c: clients) {
+	// c.getWriter().println(message);
+	// }
+	// }
+
+	private class Handler implements Runnable
+	{
+		private final InputStream input;
+		Socket sock;
+
+		public Handler(Socket socket) throws IOException
+		{
+
+			input = socket.getInputStream();
+			sock = socket;
+		}
+
+		@Override
+		public void run()
+		{
+			try
+			{
+				while (sock.isConnected())
+				{
+					PrintWriter writer = new PrintWriter(
+							sock.getOutputStream());
+					writer.println("djfsdk");
+					writer.flush();
+
+					BufferedReader buffReader = new BufferedReader(
+							new InputStreamReader(input));
+					System.out.println(buffReader.readLine());
+				}
+			} catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public static void main(String[] args)
 	{
 		new Server();
-
 	}
 }

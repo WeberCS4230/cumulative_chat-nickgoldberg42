@@ -5,6 +5,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.UnknownHostException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -20,13 +22,14 @@ public class ChatGui
 	JTextArea textEntry = new JTextArea();
 	private JFrame frame;
 
-	public ChatGui()
+	public ChatGui() throws UnknownHostException, IOException
 	{
 		initialize();
 	}
 
-	public void initialize()
+	public void initialize() throws UnknownHostException, IOException
 	{
+
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
