@@ -1,6 +1,7 @@
 package chatDemo;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -21,8 +22,10 @@ public class Server
 				int read;
 				while ((read = socket.getInputStream().read()) >= 0)
 				{
-					System.out.println(read);
-					socket.getOutputStream().write((read + "\n").getBytes());
+					PrintWriter writer = new PrintWriter(
+							socket.getOutputStream());
+					System.out.println(writer);
+
 				}
 			}
 		} catch (IOException e)

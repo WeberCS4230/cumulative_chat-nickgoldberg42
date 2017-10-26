@@ -1,5 +1,6 @@
 package chatDemo;
 
+import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -40,6 +41,7 @@ public class ChatGui
 
 		JScrollPane scroll = new JScrollPane(textArea);
 		panel.add(scroll);
+		scroll.setBackground(Color.blue);
 
 		textEntry.setFocusable(true);
 		textEntry.addKeyListener(new KeyAdapter()
